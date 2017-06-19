@@ -1,0 +1,43 @@
+ <template name="ProjectList">
+  <h1>Project List</h1>
+  <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Description</th> 
+            <th>Deadline</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {{#each projects}}
+            <tr>
+              <td>{{name}}</td>
+              <td>{{description}}</td>
+              <td>{{deadlineFormatted}}</td>
+              <td>
+                {{#if priorityHigh}}
+                  <span class="label label-danger">{{priority}}</span>
+                {{/if}}
+
+                {{#if priorityMedium}}
+                  <span class="label label-warning">{{priority}}</span>
+                {{/if}}
+
+                {{#if priorityLow}}
+                  <span class="label label-success">{{priority}}</span>
+                {{/if}}
+              </td>
+              <td>
+                {{#linkTo route='editProject'}}
+                  <i class="fa fa-pencil-square-o"></i>
+                {{/linkTo}}
+              </td>
+            </tr>
+          {{/each}}
+
+        </tbody>
+      </table>
+
+</template>
